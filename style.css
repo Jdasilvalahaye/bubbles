@@ -1,0 +1,35 @@
+/* Overflow hidden pour ne pas que les bulles cassent la page */
+body {
+  overflow: hidden;
+  min-height: 100vh;
+  cursor: crosshair;
+}
+
+/* On créer une classe à notre bubble */
+.bubble {
+  position: absolute;
+  border-radius: 300px;
+  background: rgba(255, 166, 0, 0.6);
+  /* On créer une animation */
+  opacity: 0;
+  animation: anim 8s forwards;
+  /* hue-rotate c'est la roue chromatique. On la démarre à 0 degrés et on lui demande de faire 2 fois le tour de la roue (720) */
+  filter: hue-rotate(0deg);
+}
+@keyframes anim {
+  /* Tu vas jusqu'à un top de -250 px (elle monte à -250px en hauteur) */
+  to {
+    top: -250px;
+    left: var(--left);
+    opacity: 1;
+    filter: hue-rotate(720deg);
+  }
+}
+
+/* Le compteur */
+h3 {
+  font-size: 10rem;
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(128, 128, 128, 0.555);
+}
